@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Firefox Debugger",
+            "type": "firefox",
+            "request": "launch",
+            "reAttach": false,
+            "url": "http://localhost:8080/index.html",
+            "webRoot": "${workspaceFolder}/app",
+            "keepProfileChanges": false
+        },
+        {
+            "name": "Node Server",
+            "type": "node",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/server.js"
+        }
+    ]
+}
