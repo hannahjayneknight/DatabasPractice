@@ -1,3 +1,6 @@
+// INSERTING DATA INTO A TABLE
+// NB need to find a way of making sure a table doesn't already exist
+
 import sqlite3 from "sqlite3";
 
 // NB the database will be created if it does not already exist
@@ -26,6 +29,10 @@ console.log(`A row has been inserted with rowid ${this.lastID}`);
 
 // insert multiple rows at once
 // to do this, we use map() to map each element in the array to ?
+/*
+INSERT INTO table_name(column_name)
+VALUES(value_1), (value_2), (value_3),...
+*/
 let languages = ['C++', 'Python', 'Java', 'C#', 'Go'];
 let placeholders = languages.map((language) => '(?)').join(',');
 let sql = 'INSERT INTO langs(name) VALUES ' + placeholders;

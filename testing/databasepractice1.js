@@ -1,3 +1,5 @@
+// QUERYING DATA FROM AN SQLITE DATABASE
+
 import sqlite3 from "sqlite3";
 // other method of writing this:
 // const sqlite3 = require('sqlite3').verbose();
@@ -7,7 +9,7 @@ import sqlite3 from "sqlite3";
 // returns a database object and opens the database connection automatically
 // callback function for if the database does not open
 const db =
-    new sqlite3.Database("../chinook.db", sqlite3.OPEN_READWRITE, function (err) {
+    new sqlite3.Database("./chinook.db", sqlite3.OPEN_READWRITE, function (err) {
         if (err) {
         console.error(err.message);
         }
@@ -37,7 +39,7 @@ let sql2 = `SELECT PlaylistId id,
 Name name
 FROM playlists
 WHERE PlaylistId  = ?`;
-let playlistId = 1;
+let playlistId = 3;
 
 db.get(sql2, [playlistId], (err, row) => {
     if (err) {

@@ -1,7 +1,11 @@
-/*
 const handlers = Object.create(null);
 
+handlers.findword = (
+    "SELECT "
+)
 
+export default Object.freeze(handlers);
+/*
 
 const handler = function (obj) {
 
@@ -57,6 +61,4 @@ const queryPromise = function (query, ...queryPara) {
     });
 
 };
-
-export default Object.freeze(handler);
 */
