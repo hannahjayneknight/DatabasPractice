@@ -1,7 +1,6 @@
 // PICKING A RANDOM WORD AND EXPORTING IT TO DISPLAY ON THE SCREEN
 
 import sqlite3 from "sqlite3";
-import F from "./usefulfunctions.js";
 
 const db =
     new sqlite3.Database("./sample.db", function (err) {
@@ -13,6 +12,32 @@ const db =
 
 // first you find the length of the database
 const queryLength = `SELECT count(*) AS rowCount FROM langs`;
+
+
+var dbLength = [];
+db.serialize(() => {
+    db.get(queryLength, [], function (err, row) {
+        if (err) {
+            return console.error(err.message);
+        }
+        dbLength.push(row);
+            // ? console.log("The length of the database is: " + dbLength)
+            // : console.log(`No length found`);
+    });
+});
+
+
+
+db.close(function (err) {
+    if (err) {
+        console.error(err.message);
+    }
+    
+    console.log("Close the database connection.");
+    console.log(dbLength);
+});
+
+
 /*
 TRYING TO SAVE QUERY AS A VARIABLE
 
@@ -32,15 +57,6 @@ async function f() {
 f();
 */
 
-db.get(queryLength, [], function (err, row) {
-    if (err) {
-        return console.error(err.message);
-    }
-    return row
-        ? console.log("The length of the database is: " + row.rowCount)
-        : console.log(`No length found`);
-});
-
 /*
 // then you can find a random word
 const langID = F.getRandomInt(0, obj.dbLength);
@@ -58,9 +74,11 @@ db.get(queryWord, [langID], function (err, row) {
 });
 */
 
-db.close(function (err) {
-    if (err) {
-        console.error(err.message);
-    }
-    console.log("Close the database connection.");
-    });
+
+onrequest( () =>
+{
+    dblookup( () =>
+    {
+        sendresponsetoclient()
+    })
+})

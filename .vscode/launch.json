@@ -25,6 +25,15 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/server.js"
+        },
+        {
+            "name": "DB Test",
+            "type": "node",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/testing/databasepractice5.js"
         }
     ]
 }
