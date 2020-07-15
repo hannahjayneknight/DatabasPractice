@@ -34,7 +34,7 @@ const actionPromise = function (query, ...queryPara) {
         db.run(query, queryPara, function (err, rows) {
             if (err) {
                 reject(err);
-                return; 
+                return;
             }
             resolve(this.changes);
             db.close();
@@ -44,7 +44,7 @@ const actionPromise = function (query, ...queryPara) {
 };
 
 
-const   queryPromise = function (query, ...queryPara) {
+const queryPromise = function (query, ...queryPara) {
     return new Promise(function (resolve, reject) {
         const db = new sqlite3.Database("./recipes.db");
         db.run(query, queryPara, function (err, rows) {
@@ -58,48 +58,4 @@ const   queryPromise = function (query, ...queryPara) {
 
 };
 
-// shows how we can export functions as well as objects
 export default Object.freeze(handler);
-
-/*
-const history = [];
-
-const handlers = {};
-
-const bots = {};
-
-Object.keys(simpleBots).forEach(function (key) {
-    bots[key] = simpleBots[key];
-});
-bots.jeff = advancedBots.newCountdownBot({
-    name: "Jeff",
-    from: 10,
-    then: "Boom!"
-});
-bots.steve = advancedBots.newCountdownBot({
-    name: "Steve",
-    from: 10,
-    then: "Boom!"
-});
-bots.math = advancedBots.newMathBot();
-
-handlers.message = function (obj) {
-    history.push(obj.message);
-    // we use the or operator so that if the parsed in bot doesn't exist, it
-    // will still do something
-    const botName = obj.bot || "agreeBot";
-    const response = bots[botName].response(history);
-    return {
-        "message": response,
-        "bot": botName
-    };
-};
-
-handlers.list = function () {
-    return Object.keys(bots).map((k) => ({
-        "key": k,
-        "name": bots[k].name
-    }));
-};
-
-*/

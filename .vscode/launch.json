@@ -6,15 +6,15 @@
             "request": "launch",
             "reAttach": false,
             "name": "Launch index.html",
-            "file": "${workspaceFolder}/index.html"
+            "file": "${workspaceFolder}/testing/index.html"
         },
         {
             "name": "Firefox Debugger",
             "type": "firefox",
             "request": "launch",
             "reAttach": false,
-            "url": "http://localhost:8080/index.html",
-            "webRoot": "${workspaceFolder}",
+            "url": "http://localhost:1711/index.html",
+            "webRoot": "${workspaceFolder}/testing",
             "keepProfileChanges": false
         },
         {

@@ -6,20 +6,20 @@ const el = (id) => document.getElementById(id);
 
 
 UI.init = function () {
-    const userInput = el("user-input");
     const requestBox = el("requestBox");
     const responseBox = el("responseBox");
     const display = el("display");
 
-    userInput.onkeydown = function (event) {
+    el("user-input").onkeydown = function (event) {
+        // Do nothing special if the skift or enter keys are pressed.
         if (event.key !== "Enter" || event.shiftKey) {
-            return; // Do nothing special.
+            return;
         }
 
         const request = {
             "type": "lists",
             "bot": "grumpyBot",
-            "message": userInput.value
+            "message": el("user-input").value
         };
         requestBox.value = JSON.stringify(request);
 

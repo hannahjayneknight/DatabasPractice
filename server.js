@@ -1,11 +1,11 @@
 import express from "express";
-import handler from "./handler.js";
+import handler from "./testing/handler.js";
 
 const port = 1711;
 
 const app = express();
 
-app.use("/", express.static("app"));
+app.use("/", express.static("testing"));
 app.use("/", express.json());
 
 app.post("/", function (req, res) {
