@@ -7,7 +7,7 @@ import sqlite3 from "sqlite3";
 // returns a database object and opens the database connection automatically
 // callback function for if the database does not open
 const db =
-    new sqlite3.Database("./chinook.db", sqlite3.OPEN_READWRITE, function (err) {
+    new sqlite3.Database("../chinook.db", sqlite3.OPEN_READWRITE, function (err) {
         if (err) {
         console.error(err.message);
         }
