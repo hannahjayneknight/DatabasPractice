@@ -1,7 +1,22 @@
 import sqlite3 from "sqlite3";
+// other method of writing this:
+// const sqlite3 = require('sqlite3').verbose();
 
-const db = new sqlite3.Database("./recipes.db");
+// returns a database object and opens the database connection automatically
+// callback function for if the database does not open
+const db =
+new sqlite3.Database("./recipes.db", sqlite3.OPEN_READWRITE, function (err) {
+    if (err) {
+      console.error(err.message);
+    }
+    console.log("Connected to the chinook database.");
+  });
+
+
+
 const handlers = Object.create(null);
+
+
 
 const handler = function (obj) {
 
