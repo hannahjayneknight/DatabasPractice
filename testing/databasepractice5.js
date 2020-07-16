@@ -12,7 +12,7 @@ const db =
 
 // finds a random word from the ones being tested
 // (depends on level - NEED TO CHANGE LEVEL FOR THIS)
-let level = 1;
+let level = 6;
 const queryWord = `SELECT * FROM (
     SELECT * FROM langs ORDER BY langID LIMIT ${level}
     ) ORDER BY RANDOM() LIMIT 1;`;
@@ -25,6 +25,7 @@ db.serialize(function () {
         }
         // adds the random to the database object
         dbObj.word = row;
+        console.log(dbObj);
     });
 });
 
@@ -35,7 +36,6 @@ db.close(function (err) {
     }
 
     console.log("Close the database connection.");
-    console.log(dbObj);
 });
 
 /*
