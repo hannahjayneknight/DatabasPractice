@@ -25,7 +25,6 @@ db.serialize(function () {
         }
         // adds the random to the database object
         dbObj.word = row;
-
     });
 });
 
