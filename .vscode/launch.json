@@ -5,16 +5,16 @@
             "type": "firefox",
             "request": "launch",
             "reAttach": false,
-            "name": "Launch index.html",
-            "file": "${workspaceFolder}/testing/index.html"
+            "name": "Launch ListOfQuizzes.html",
+            "file": "${workspaceFolder}/listing/ListOfQuizzes.html"
         },
         {
             "name": "Firefox Debugger",
             "type": "firefox",
             "request": "launch",
             "reAttach": false,
-            "url": "http://localhost:1711/index.html",
-            "webRoot": "${workspaceFolder}/testing",
+            "url": "http://localhost:1711/ListOfQuizzes.html",
+            "webRoot": "${workspaceFolder}/listing",
             "keepProfileChanges": false
         },
         {
@@ -24,7 +24,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/server.js"
+            "program": "${workspaceFolder}/listing/server.js"
         },
         {
             "name": "DB Test",

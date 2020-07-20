@@ -1,5 +1,5 @@
 import express from "express";
-import handler from "./testing/handler.js";
+import handler from "../testing/handler.js";
 
 const port = 1711;
 
