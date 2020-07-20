@@ -29,6 +29,7 @@ H.infoTables = function (cb) {
             // prints the array containing each table name
             console.log(dbObj.tables);
             console.log(dbObj.noTables);
+            console.log(row);
         });
     });
 
@@ -38,9 +39,10 @@ H.infoTables = function (cb) {
         }
 
         console.log("Close the database connection.");
-        cb(dbObj);
     });
 
 };
+
+H.infoTables();
 
 export default Object.freeze(H);

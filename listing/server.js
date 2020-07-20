@@ -1,20 +1,25 @@
+
 import express from "express";
-import handler from "../testing/handler.js";
+import expressWS from "express-ws";
+import dbH from "./dbHander.js";
+function ignorparam() {}
 
 const port = 1711;
 
 const app = express();
+expressWS(app);
 
-app.use("/", express.static("testing"));
-app.use("/", express.json());
+app.use("/", express.static("app"));
 
-app.post("/", function (req, res) {
-    const requestObject = req.body;
-    handler(requestObject).then(function (responseObj) {
-        res.json(responseObj);
-    });
+// THESE ARE FOR THE DYNAMIC SERVER
+app.use(function (req, res, next) {
+    ignorparam(res);
+    req.testing = "testing";
+    return next();
 });
 
-app.listen(port, function () {
-    console.log("Listening on port " + port);
+app.get("/", function (req, res, next) {
+    ignorparam(next);
+    ignorparam(req); // better way of ignoring a parameter?
+    res.end();
 });

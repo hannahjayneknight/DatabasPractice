@@ -11,11 +11,12 @@ UI.init = function () {
     });
 
     F.sequence(36).forEach(function (element) {
-    // makes a div element which will represent each quiz
-        const publicQuiz = document.createElement("div");
+        // makes a p element which will represent each quiz
+        const publicQuiz = document.createElement("p");
         // CHANGE ELEMENT TO THE NAME OF THE QUIZ?
         publicQuiz.setAttribute("id", "Public quiz " + element);
         publicQuiz.setAttribute("class", "Public Quizzes");
+        publicQuiz.innerHTML = "";
         el("List of quizzes").append(publicQuiz);
     });
 
