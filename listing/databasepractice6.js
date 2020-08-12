@@ -43,6 +43,40 @@ H.infoTables = function (cb) {
 
 };
 
-H.infoTables();
+// adding a quiz to the database
+H.addQuiz = function (tableName, cb) {
+    const db = new sqlite3.Database("./sample2.db", function (err) {
+        if (err) {
+            console.error(err.message);
+        }
+        // console.log("Connected to the sample database.");
+    });
+
+    const createTable = `CREATE TABLE ${tableName} (
+        "question" TEXT NOT NULL,
+        "answer" TEXT NOT NULL
+    );`;
+
+    const dbObj = {};
+    db.serialize(function () {
+        db.run(createTable, [], function (err, row) {
+            if (err) {
+                return console.error(err.message);
+            }
+            // dbObj.word = row;
+            console.log(dbObj);
+            console.log(row);
+        });
+    });
+
+    db.close(function (err) {
+        if (err) {
+            console.error(err.message);
+        }
+        cb(dbObj);
+        // console.log("Close the database connection.");
+    });
+
+};
 
 export default Object.freeze(H);

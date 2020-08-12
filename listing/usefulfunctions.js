@@ -39,4 +39,23 @@ F.uniq = function (a) {
     });
 }
 
+F.randomBoard = () => [...new Array(36)].map(() => Math.round(Math.random() * 3)).map( x => x + 1);
+
+// returns an array with all the indexes of a repeated element in an array
+F.getAllIndexes = function (arr, val) {
+    var indexes = [], i;
+    for(i = 0; i < arr.length; i++)
+        if (arr[i] === val)
+            indexes.push(i);
+    return indexes;
+}
+
+F.twoDArrEquals = (arr1, arr2) => arr1.every(
+    (row1, i) => row1.every((tile, j) => tile === arr2[i][j])
+);
+
+F.oneDArrEquals = (arr1, arr2) => arr1.every(
+    (tile, j) => tile === arr2[j]
+);
+
 export default Object.freeze(F);
